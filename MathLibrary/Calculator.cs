@@ -123,5 +123,22 @@ namespace MathLibrary
                 return true;
             }
         }
+
+        /// <summary>
+        /// Вычисляет площадь круга по радиусу.
+        /// </summary>
+        public static double CircleArea(double radius)
+        {
+            if (radius < 0) throw new ArgumentException("Радиус не может быть отрицательным.");
+            return Math.PI * radius * radius;
+        }
+
+        /// <summary>
+        /// Преобразует температуру из Цельсия в Фаренгейт.
+        /// </summary>
+        public static double CelsiusToFahrenheit(double celsius)
+        {
+            return celsius * 9 / 5 + 32;
+        }
     }
 }
