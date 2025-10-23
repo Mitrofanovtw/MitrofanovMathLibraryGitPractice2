@@ -47,24 +47,28 @@ namespace MathLibrary
             return true;
         }
 
-        public static double Power(double number, double power)
-        {
-            return Math.Pow(number, power);
-        }
-
-        public static long Factorial(int n)
+        public static int Factorial(int n)
         {
             if (n < 0)
-                throw new ArgumentException("Факториал определен только для неотрицательных чисел.");
-            if (n == 0 || n == 1)
-                return 1;
-
-            long result = 1;
+            {
+                throw new ArgumentException("Факториал не определен для отрицательных чисел.");
+            }
+            if (n == 0 || n == 1) return 1;
+            int result = 1;
             for (int i = 2; i <= n; i++)
             {
                 result *= i;
             }
             return result;
+        }
+
+        public static double Power(double number, double power)
+        {
+            if (number == 0 && power < 0)
+            {
+                throw new ArgumentException("Нулевое основание с отрицательной степенью не определено.");
+            }
+            return Math.Pow(number, power);
         }
 
         public static bool SolveQuadratic(double a, double b, double c, out double? x1, out double? x2)
